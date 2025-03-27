@@ -1,0 +1,99 @@
+.main-container{
+    height: 100vh;
+}
+
+.header{
+    height: 100px;
+    background-color: #0000ff1a;
+}
+
+.footer{
+    height: 100px;
+    gap: 10px;
+    background-color: #00ff6629;
+    color: white;
+}
+
+.section{
+    height: calc(100vh - 200px);
+} 
+
+.full-height{
+    height: 100%;
+}
+
+.full-width{
+    width: 100%;
+}
+
+.width-80{
+    width: 80%;
+}
+
+.mid-section{
+    // background-color: #da70d640;s
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.center-content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1{
+    font-style: italic;
+    font-size: 3em;
+}
+
+.input-section {
+    display: flex;
+    justify-content: end;
+    align-items: end;
+    gap: 10px;
+    width: 100%;
+}
+
+.input-container {
+    width: 100%;
+}
+
+.input-field {
+    width: 30%;
+    outline: none;
+    height: 37px;
+    border-color: blue;
+    border-radius: 6px;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+button {
+    align-self: flex-start; /* Align button to the left */
+    margin-top: 10px;
+}
+
+.btn{
+    color: white !important;
+    background-color: blue !important;
+}
+
+.header-cell{
+    background-color: aqua !important;
+}
+
+.navigation{
+    width:23%;
+    height: 70%;
+    background-color: cadetblue;
+    border-radius: 16px;
+    font-size: 2em;
+    font-style: italic;
+}
+
+.navigation:hover{
+    background-color: #6600ff29;
+    color: black;
+    cursor: pointer;
+}

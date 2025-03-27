@@ -1,0 +1,68 @@
+<div class="main-container">
+    <!-- Header -->
+  <header class="header center-content">
+    <h1>Eugelter PE</h1>
+  </header>
+
+  <!-- Section -->
+  <section class="section center-content">
+    <div class="full-height width-80 mid-section">
+        <!-- Add Item Section -->
+        <div class="input-section">
+            <input matInput #newItem type="text" placeholder="Enter item" class="input-field" />
+            <button mat-raised-button class="btn" (click)="addItem(newItem.value); newItem.value=''" [disabled]="!newItem.value">
+               + Add Item
+            </button>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <!-- Table Section -->
+        <div class="table-container">
+          <table mat-table [dataSource]="items" class="mat-elevation-z8">
+              <!-- Item Column -->
+              <ng-container matColumnDef="item">
+                <th mat-header-cell *matHeaderCellDef class="header-cell">Item</th>
+                <td mat-cell *matCellDef="let item" class="item-cell">{{ item }}</td>
+              </ng-container>
+
+              <!-- Actions Column (Delete) -->
+              <ng-container matColumnDef="actions">
+                <th mat-header-cell *matHeaderCellDef class="header-cell">Actions</th>
+                <td mat-cell *matCellDef="let item">
+                  <button mat-icon-button color="warn" (click)="deleteItem(item)">
+                    <mat-icon>delete</mat-icon>
+                  </button>
+                </td>
+              </ng-container>
+
+              <!-- Edit -->
+
+              <ng-container matColumnDef="edit">
+                <th mat-header-cell *matHeaderCellDef class="header-cell">Edit</th>
+                <td mat-cell *matCellDef="let item">
+                  <button mat-icon-button color="warn" (click)="deleteItem(item)">
+                    <mat-icon>edit</mat-icon>
+                  </button>
+                </td>
+              </ng-container>
+
+              <!-- Table Header and Rows -->
+              <tr mat-header-row *matHeaderRowDef="['item', 'actions','edit']"></tr>
+              <tr mat-row *matRowDef="let row; columns: ['item', 'actions', 'edit'];"></tr>
+          </table>
+        </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer center-content" >
+    <div class="navigation center-content" *ngFor="let name of names">
+      <div [routerLink]="name.router" class="full-height full-width center-content">
+        {{ name.name }}
+      </div>
+    </div>
+    <!-- <p>© 2021 Eugelter</p> -->
+  </footer>
+</div>
