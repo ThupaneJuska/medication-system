@@ -5,14 +5,14 @@ import { MdauComponent } from './components/mdau/mdau.component';
 import { ChaukeComponent } from './components/chauke/chauke.component';
 import { MahlankuComponent } from './components/mahlanku/mahlanku.component';
 import { RamokgotsoaComponent } from './components/ramokgotsoa/ramokgotsoa.component';
-import { LandingComponent } from './components/landing/landing.component';
+import { StaffComponent } from './components/staff/staff.component';
 import { ReportsComponent } from './components/reports/reports.component';
 import { PrescriptionsComponent } from './components/prescriptions/prescriptions.component';
-import { StaffComponent } from './components/staff/staff.component';
 import { PatientsComponent } from './components/patients/patients.component';
-import { LoginComponent } from './components/login/login.component';
-import { AuthGuard } from './guards/auth.guard';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { LoginComponent } from './components/login/login.component';
+import { LandingComponent } from './components/landing/landing.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
