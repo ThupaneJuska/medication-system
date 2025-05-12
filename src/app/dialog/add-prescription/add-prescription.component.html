@@ -1,0 +1,54 @@
+<h2 mat-dialog-title>Add Prescription</h2>
+<mat-dialog-content>
+  <form [formGroup]="prescriptionForm" (ngSubmit)="addPrescription()" class="prescription-form">
+    
+    <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Prescription Date</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="prescription_date" required readonly>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Dosage Instructions</mat-label>
+      <input matInput type="text" formControlName="dosage_instructions" required>
+    </mat-form-field>
+
+   <!-- Patient ID Dropdown -->
+<mat-form-field appearance="outline" class="full-width">
+    <mat-label>Patient</mat-label>
+    <mat-select formControlName="patient_id" required>
+      <mat-option *ngFor="let patient of patients" [value]="patient.patient_id">
+        {{ patient.name }} (ID: {{ patient.patient_id }})
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  
+  <!-- Medication ID Dropdown -->
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Medication</mat-label>
+    <mat-select formControlName="medication_id" required>
+      <mat-option *ngFor="let medication of medications" [value]="medication.medication_id">
+        {{ medication.name }} (ID: {{ medication.medication_id }})
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  
+  <!-- Staff ID Dropdown -->
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Staff</mat-label>
+    <mat-select formControlName="staff_id" required>
+      <mat-option *ngFor="let staff of staffList" [value]="staff.staff_id">
+        {{ staff.name }} (ID: {{ staff.staff_id }})
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  
+
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="onClose()">Cancel</button>
+  <button mat-raised-button color="primary" (click)="addPrescription()">Submit</button>
+</mat-dialog-actions>

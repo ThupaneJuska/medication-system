@@ -1,0 +1,69 @@
+<div class="main-container">
+    <!-- Left -->
+    <div class="left">
+      <div class="login-image">
+        <img class="image" src="../../../assets/login.jpg" alt="Login-image" />
+      </div>
+    </div>
+  
+    <!-- Right -->
+    <div class="right">
+      <div class="form-container">
+        <form class="main-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <h1><i>Welcome to Medication System</i></h1>
+          <h2><i>Login</i></h2>
+  
+          <!-- Email -->
+          <p class="label full-width">Email</p>
+          <mat-form-field appearance="outline" class="full-width">
+            <input
+              matInput
+              formControlName="email"
+              placeholder="Enter your email"
+            />
+            <mat-error *ngIf="loginForm.get('email')?.hasError('required')">
+              Email is required
+            </mat-error>
+            <mat-error *ngIf="loginForm.get('email')?.hasError('email')">
+              Enter a valid email
+            </mat-error>
+          </mat-form-field>
+  
+          <!-- Password -->
+          <p class="label full-width">Password</p>
+          <mat-form-field appearance="outline" class="full-width">
+            <input
+              matInput
+              type="password"
+              formControlName="password"
+              placeholder="Enter your password"
+            />
+            <mat-error *ngIf="loginForm.get('password')?.hasError('required')">
+              Password is required
+            </mat-error>
+            <mat-error *ngIf="loginForm.get('password')?.hasError('minlength')">
+              Password must be at least 6 characters
+            </mat-error>
+          </mat-form-field>
+  
+          <!-- Login Button -->
+          <button
+            mat-raised-button
+            color="primary"
+            class="full-width btn"
+            [disabled]="loginForm.invalid"
+          >
+            Login
+          </button>
+  
+          <!-- Server Error Message -->
+          <div *ngIf="errorMessage" class="error-text">
+            {{ errorMessage }}
+          </div>
+  
+          <p class="forgot-password"><i>Forgot password?</i></p>
+        </form>
+      </div>
+    </div>
+  </div>
+  

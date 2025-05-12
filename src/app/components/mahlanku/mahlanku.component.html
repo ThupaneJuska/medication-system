@@ -1,1 +1,78 @@
-<p>mahlanku works!</p>
+<div class="main-container">
+    <header class="header center-content">
+      <h1>MAHLANKU</h1>
+    </header>
+  
+    <section class="section center-content">
+      <div class="full-height width-80 mid-section">
+       
+  
+        <!-- Medication Table -->
+        <div class="table-container">
+          <table mat-table [dataSource]="medications" class="mat-elevation-z8">
+            <!-- Name Column -->
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef>Medication</th>
+              <td mat-cell *matCellDef="let medication">
+                <input matInput [(ngModel)]="medication.name" *ngIf="medication.isEditing" />
+                <span *ngIf="!medication.isEditing">{{ medication.name }}</span>
+              </td>
+            </ng-container>
+  
+            <!-- Dosage Column -->
+            <ng-container matColumnDef="dosage">
+              <th mat-header-cell *matHeaderCellDef>Dosage</th>
+              <td mat-cell *matCellDef="let medication">
+                <input matInput [(ngModel)]="medication.dosage" *ngIf="medication.isEditing" />
+                <span *ngIf="!medication.isEditing">{{ medication.dosage }}</span>
+              </td>
+            </ng-container>
+  
+            <!-- Quantity Column -->
+            <ng-container matColumnDef="quantity">
+              <th mat-header-cell *matHeaderCellDef>Quantity</th>
+              <td mat-cell *matCellDef="let medication">
+                <input matInput [(ngModel)]="medication.quantity" *ngIf="medication.isEditing" />
+                <span *ngIf="!medication.isEditing">{{ medication.quantity }}</span>
+              </td>
+            </ng-container>
+  
+            <!-- Stock Column -->
+            <ng-container matColumnDef="stock">
+              <th mat-header-cell *matHeaderCellDef>Stock</th>
+              <td mat-cell *matCellDef="let medication">
+                <input matInput [(ngModel)]="medication.stock_count" *ngIf="medication.isEditing" />
+                <span *ngIf="!medication.isEditing">{{ medication.stock_count }}</span>
+              </td>
+            </ng-container>
+  
+            <!-- Actions Column (Edit, Delete) -->
+            <ng-container matColumnDef="actions">
+              <th mat-header-cell *matHeaderCellDef>Actions</th>
+              <td mat-cell *matCellDef="let medication">
+                <button mat-icon-button color="primary" (click)="editMedication(medication)">
+                  <mat-icon>edit</mat-icon>
+                </button>
+                <button mat-icon-button color="accent" *ngIf="medication.isEditing" (click)="updateMedication(medication)">
+                  <mat-icon>save</mat-icon>
+                </button>
+              </td>
+            </ng-container>
+  
+            <tr mat-header-row *matHeaderRowDef="['name', 'dosage', 'quantity', 'stock', 'actions']" class="header-cell"></tr>
+            <tr mat-row *matRowDef="let row; columns: ['name', 'dosage', 'quantity', 'stock', 'actions'];"></tr>
+          </table>
+        </div>
+  
+      </div>
+    </section>
+  
+    <footer class="footer center-content">
+      <div class="navigation center-content" *ngFor="let name of names">
+        <div [routerLink]="name.router" class="full-height full-width center-content">
+          {{ name.name }}
+        </div>
+      </div>
+    </footer>
+  </div>
+  

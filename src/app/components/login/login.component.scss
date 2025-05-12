@@ -1,0 +1,90 @@
+.main-container{
+    height: 100%;
+    display: flex;
+}
+
+.left{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.right{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.login-image{
+    height: 100%;
+    width: 100%;
+}
+
+.form-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.image{
+    height: 100%;
+    width: 100%;
+}
+
+.person-icon{
+    height: 20%;
+    width: 20%;
+    background-color: white;
+    border-radius: 50%;
+}
+
+.main-form{
+    height: 70%;
+    width: 90%;
+    background-color: aliceblue;
+    border-radius: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.full-width {
+    width: 80%;
+  }
+
+.label{
+    text-align: start;
+}
+
+.btn{
+    background-color: #00e1be !important;
+    color: white !important;
+    height: 10%;
+    font-size: 1.5em;
+}
+
+h1{
+    color: #33829c;
+}
+
+.forgot-password{
+    width: 80%;
+    text-align: end;
+    color: #1c45b3;
+}
+
+.forgot-password:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}

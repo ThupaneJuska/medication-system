@@ -1,0 +1,71 @@
+<div class="main-container">
+    <div class="top">
+      <div class="pie-main-container">
+        <canvas baseChart
+                [data]="pieChartData"
+                [type]="pieChartType">
+        </canvas>
+      </div>
+      <div class="graph-main-container">
+        <canvas baseChart
+                [data]="lineChartData"
+                [type]="lineChartType">
+        </canvas>
+      </div>
+    </div>
+  
+    <div class="bottom" style="padding: 10px;">
+      <mat-card>
+        <h3 class="center-content">Prescriptions Table</h3>
+       <div class="export-btn">
+         <button mat-raised-button class="export" color="primary" (click)="exportPrescriptionsToExcel()">
+            Export to Excel
+          </button> 
+       </div>         
+  
+        <mat-form-field appearance="outline" style="margin-bottom: 16px; width: 300px;">
+          <mat-label>Filter by Prescription Date</mat-label>
+          <input matInput [matDatepicker]="picker" (dateChange)="applyDateFilter($event)" placeholder="Choose a date">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+  
+        <mat-table [dataSource]="prescriptions" class="mat-elevation-z8">
+  
+          <!-- Staff ID -->
+          <ng-container matColumnDef="staff_id">
+            <mat-header-cell *matHeaderCellDef>STAFF ID</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{ element.staff_id }}</mat-cell>
+          </ng-container>
+  
+          <!-- Patient ID -->
+          <ng-container matColumnDef="patient_id">
+            <mat-header-cell *matHeaderCellDef>PATIENT ID</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{ element.patient_id }}</mat-cell>
+          </ng-container>
+  
+          <!-- Dosage Instructions -->
+          <ng-container matColumnDef="dosage_instructions">
+            <mat-header-cell *matHeaderCellDef>DOSAGE INSTRUCTIONS</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{ element.dosage_instructions }}</mat-cell>
+          </ng-container>
+  
+          <!-- Prescription Date -->
+          <ng-container matColumnDef="prescription_date">
+            <mat-header-cell *matHeaderCellDef>PRESCRIPTION DATE</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{ element.prescription_date }}</mat-cell>
+          </ng-container>
+  
+          <!-- Medication ID -->
+          <ng-container matColumnDef="medication_id">
+            <mat-header-cell *matHeaderCellDef>MEDICATION ID</mat-header-cell>
+            <mat-cell *matCellDef="let element">{{ element.medication_id }}</mat-cell>
+          </ng-container>
+  
+          <mat-header-row *matHeaderRowDef="displayedColumns" class="header-cell"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+      </mat-card>
+    </div>
+  </div>
+  

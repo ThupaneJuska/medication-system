@@ -1,5 +1,5 @@
 .main-container{
-    height: 100vh;
+    height: 80%;
 }
 
 .header{
@@ -15,7 +15,7 @@
 }
 
 .section{
-    height: calc(100vh - 200px);
+    height: 80%;
 } 
 
 .full-height{
@@ -27,7 +27,7 @@
 }
 
 .width-80{
-    width: 80%;
+    width: 100%;
 }
 
 .mid-section{
@@ -98,4 +98,10 @@ button {
     background-color: #6600ff29;
     color: black;
     cursor: pointer;
+}
+
+.add-prescription{
+    display: flex;
+    justify-content: end;
+    margin-bottom: 10px;
 }

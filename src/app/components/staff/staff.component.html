@@ -1,0 +1,52 @@
+<div class="main-container">
+  <header class="header center-content">
+    <h1>STAFF</h1>
+  </header>
+
+  <section class="section center-content">
+    <div class="width-80">
+
+      <div class="add-staff">
+        <button mat-raised-button class="btn" (click)="openAddStaffDialog()">Add Staff</button>
+      </div>
+      <!-- Staff Table -->
+      <div class="table-container" style="margin-top: 20px;">
+        <table mat-table [dataSource]="staff" class="mat-elevation-z8" style="width: 100%;">
+
+          <ng-container matColumnDef="staff_id">
+            <th mat-header-cell *matHeaderCellDef>STAFF ID</th>
+            <td mat-cell *matCellDef="let staff">{{ staff.staff_id }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef>NAME</th>
+            <td mat-cell *matCellDef="let staff">{{ staff.name }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="role">
+            <th mat-header-cell *matHeaderCellDef>ROLE</th>
+            <td mat-cell *matCellDef="let staff">{{ staff.role }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="contact_number">
+            <th mat-header-cell *matHeaderCellDef>CONTACT NUMBER</th>
+            <td mat-cell *matCellDef="let staff">{{ staff.contact_number }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef> ACTIONS </th>
+            <td mat-cell *matCellDef="let staff">
+              <button mat-icon-button color="warn" (click)="deleteStaff(staff.staff_id)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="['staff_id', 'name', 'role', 'contact_number', 'actions']" class="header-cell"></tr>
+          <tr mat-row *matRowDef="let row; columns: ['staff_id', 'name', 'role', 'contact_number', 'actions'];"></tr>
+        </table>
+      </div>
+
+    </div>
+  </section>
+</div>

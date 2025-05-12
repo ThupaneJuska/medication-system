@@ -1,0 +1,66 @@
+<!-- Add Staff Form -->
+<mat-card class="add-staff-card">
+    <form [formGroup]="staffForm" (ngSubmit)="addStaff()" class="add-staff-form">
+      <h3 class="center-content">Add New Staff</h3>
+  
+      <!-- Name -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name" required>
+        <mat-error *ngIf="staffForm.get('name')?.hasError('required')">
+          Name is required
+        </mat-error>
+      </mat-form-field>
+  
+      <!-- Role -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Role</mat-label>
+        <input matInput formControlName="role" required>
+        <mat-error *ngIf="staffForm.get('role')?.hasError('required')">
+          Role is required
+        </mat-error>
+      </mat-form-field>
+  
+      <!-- Contact Number -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Contact Number</mat-label>
+        <input matInput formControlName="contact_number" required>
+        <mat-error *ngIf="staffForm.get('contact_number')?.hasError('required')">
+          Contact number is required
+        </mat-error>
+        <mat-error *ngIf="staffForm.get('contact_number')?.hasError('pattern')">
+          Must be a valid number
+        </mat-error>
+      </mat-form-field>
+  
+      <!-- Email -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" required>
+        <mat-error *ngIf="staffForm.get('email')?.hasError('required')">
+          Email is required
+        </mat-error>
+        <mat-error *ngIf="staffForm.get('email')?.hasError('email')">
+          Enter a valid email address
+        </mat-error>
+      </mat-form-field>
+  
+      <!-- Password -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" formControlName="password" required>
+        <mat-error *ngIf="staffForm.get('password')?.hasError('required')">
+          Password is required
+        </mat-error>
+        <mat-error *ngIf="staffForm.get('password')?.hasError('minlength')">
+          Password must be at least 6 characters
+        </mat-error>
+      </mat-form-field>
+  
+      <div class="button-container">
+        <button mat-button color="warn" (click)="onClose()">Cancel</button>
+        <button mat-raised-button color="primary" type="submit" [disabled]="staffForm.invalid">Add Staff</button>
+      </div>
+    </form>
+  </mat-card>
+  

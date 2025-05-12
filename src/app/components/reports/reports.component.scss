@@ -1,0 +1,46 @@
+.main-container{
+    height: 85vh;
+    width: 100%;
+    overflow-y: auto;
+}
+
+.bottom{
+    height: 50%;
+    width: 98%;
+    background-color: azure;
+}
+
+.top{
+    height: 50%;
+    width: 100%;
+    display: flex;
+}
+
+
+.pie-main-container{
+    width: 50%;
+    height: 100%;
+}
+
+.graph-main-container{
+    width: 50%;
+    height: 100%;
+}
+
+.pie{
+    height: 90% !important;
+    width: 45% !important;
+}
+
+.header-cell{
+    background-color: aqua !important;
+}
+
+.export{
+    width: 10%;
+}
+.export-btn{
+    display: flex;
+    justify-content: end;
+    padding: 10px;
+}

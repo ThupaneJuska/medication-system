@@ -1,0 +1,71 @@
+<mat-sidenav-container class="sidenav-container">
+    <!-- Sidebar Menu -->
+    <mat-sidenav #sidenav mode="side" opened="true" class="sidenav">
+      <mat-toolbar>Menu</mat-toolbar>
+      <mat-nav-list>
+        <!-- <a mat-list-item routerLink="dashboard" routerLinkActive="active">
+          <mat-icon class="menu-icon">home</mat-icon>
+          <span>Dashboard</span>
+        </a> -->
+        <a mat-list-item routerLink="patients" routerLinkActive="active">
+          <mat-icon class="menu-icon">group</mat-icon>
+          <span>Patients</span>
+        </a>
+        <a mat-list-item routerLink="medications" routerLinkActive="active">
+          <mat-icon class="menu-icon">medication</mat-icon>
+          <span>Medications</span>
+        </a>
+        <a mat-list-item routerLink="prescriptions" routerLinkActive="active">
+          <mat-icon class="menu-icon">assignment</mat-icon>
+          <span>Prescriptions</span>
+        </a>
+        <!-- <a mat-list-item routerLink="administration" routerLinkActive="active">
+          <mat-icon class="menu-icon">healing</mat-icon>
+          <span>Administration</span>
+        </a> -->
+        <!-- <a mat-list-item routerLink="medication-history" routerLinkActive="active">
+          <mat-icon class="menu-icon">history</mat-icon>
+          <span>Medication History</span>
+        </a> -->
+        <a *ngIf="role === 'manager'" mat-list-item routerLink="staff" routerLinkActive="active">
+          <mat-icon class="menu-icon">people</mat-icon>
+          <span>Staff</span>
+        </a>
+        <!-- <a mat-list-item routerLink="stock-management" routerLinkActive="active">
+          <mat-icon class="menu-icon">inventory</mat-icon>
+          <span>Stock Management</span>
+        </a> -->
+        <a *ngIf="role === 'manager'" mat-list-item routerLink="reports" routerLinkActive="active">
+          <mat-icon class="menu-icon">analytics</mat-icon>
+          <span>Reports</span>
+        </a>
+        <!-- <a mat-list-item routerLink="help" routerLinkActive="active">
+          <mat-icon class="menu-icon">help</mat-icon>
+          <span>Help</span>
+        </a> -->
+      </mat-nav-list>
+    </mat-sidenav>
+  
+    <!-- Top Bar -->
+    <mat-toolbar>
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>Medication System</span>
+      <span class="spacer"></span>
+      <!-- <span class="initial">{{initial}}</span> -->
+      <div class="user">
+      <p class="margin-right-10px">{{name}}</p>
+      <small class="role">{{role}}</small>
+      </div>
+      <mat-icon class="menu-icon no-margin logout" matTooltip="Logout" (click)="logout()">logout</mat-icon>
+      <!-- <span class="logout" matTooltip="Logout" (click)="logout()">Logout</span>   -->
+      
+    </mat-toolbar>
+  
+    <!-- Main Content -->
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-container>
+  
