@@ -22,6 +22,9 @@ import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { NgChartsModule } from 'ng2-charts';
 import { AddStaffComponent } from './dialog/add-staff/add-staff.component';
+import { StayLoggedInComponent } from './dialog/stay-logged-in/stay-logged-in.component';
+import { MatDialogModule } from '@angular/material/dialog';
+
 
 @NgModule({
   declarations: [
@@ -39,7 +42,8 @@ import { AddStaffComponent } from './dialog/add-staff/add-staff.component';
     PatientsComponent,
     LoginComponent,
     DashboardComponent,
-    AddStaffComponent
+    AddStaffComponent,
+    StayLoggedInComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +53,9 @@ import { AddStaffComponent } from './dialog/add-staff/add-staff.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    NgChartsModule
+    NgChartsModule,
+     MatDialogModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

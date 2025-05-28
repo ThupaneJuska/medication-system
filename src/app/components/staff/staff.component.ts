@@ -48,7 +48,7 @@ export class StaffComponent implements OnInit {
  
 
   deleteStaff(staffId: number) {
-    if (confirm('Are you sure you want to delete this staff member?')) {
+    if (confirm(`Are you sure you want to delete this staff member?`)) {
       this.http.delete(`http://localhost:3000/api/staff/${staffId}`).subscribe(() => {
         this.staff = this.staff.filter(s => s.staff_id !== staffId);
         console.log('Staff member deleted');

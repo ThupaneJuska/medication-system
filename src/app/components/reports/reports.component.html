@@ -53,7 +53,7 @@
           <!-- Prescription Date -->
           <ng-container matColumnDef="prescription_date">
             <mat-header-cell *matHeaderCellDef>PRESCRIPTION DATE</mat-header-cell>
-            <mat-cell *matCellDef="let element">{{ element.prescription_date }}</mat-cell>
+            <mat-cell *matCellDef="let element">{{ element.prescription_date | date: 'yyyy-MM-dd'}}</mat-cell>
           </ng-container>
   
           <!-- Medication ID -->

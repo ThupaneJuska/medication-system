@@ -12,6 +12,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
   errorMessage = '';
+  isLoading = false;
 
   constructor(
     private fb: FormBuilder,
@@ -30,7 +31,7 @@ export class LoginComponent implements OnInit {
   onSubmit(): void {
     if (this.loginForm.valid) {
       const { email, password } = this.loginForm.value;
-
+      this.isLoading = true;
       this.authService.login(email, password).subscribe({
         next: (res) => {
           console.log('Login response:', res);
@@ -40,6 +41,7 @@ export class LoginComponent implements OnInit {
             panelClass: ['snackbar-success']
           });
           this.router.navigate(['/landing/patients']); // Replace with your route
+          this.isLoading = false;
         },
         error: (err) => {
           this.errorMessage = err.error?.message || 'Login failed';
@@ -47,6 +49,7 @@ export class LoginComponent implements OnInit {
             duration: 3000,
             panelClass: ['snackbar-success']
           });
+          this.isLoading = false;
         }
       });
     } else {
