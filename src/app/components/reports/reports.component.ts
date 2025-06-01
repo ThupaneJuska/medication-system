@@ -55,7 +55,7 @@ export class ReportsComponent implements OnInit {
   }
 
   getMedications() {
-    this.http.get<{ medications: any[] }>('http://localhost:3000/api/medications/get-medications')
+    this.http.get<{ medications: any[] }>('https://237f-41-193-168-163.ngrok-free.app/api/medications/get-medications')
       .subscribe(response => {
         this.medications = response.medications;
         this.meds = response.medications.length;
@@ -64,7 +64,7 @@ export class ReportsComponent implements OnInit {
   }
 
   getPrescriptions() {
-    this.http.get<any[]>('http://localhost:3000/api/prescriptions')
+    this.http.get<any[]>('https://237f-41-193-168-163.ngrok-free.app/api/prescriptions')
       .subscribe(response => {
         this.prescriptions.data = response;
         this.presc = response.length;
@@ -73,7 +73,7 @@ export class ReportsComponent implements OnInit {
   }
 
   getStaff() {
-    this.http.get<any[]>('http://localhost:3000/api/staff/all-details')
+    this.http.get<any[]>('https://237f-41-193-168-163.ngrok-free.app/api/staff/all-details')
       .subscribe(response => {
         this.staff = response;
         this.staffCount = response.length;

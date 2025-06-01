@@ -20,7 +20,7 @@ export class PrescriptionsComponent implements OnInit {
   
     // Fetch all medications
     getMedications() {
-      this.http.get('http://localhost:3000/api/prescriptions')
+      this.http.get('https://237f-41-193-168-163.ngrok-free.app/api/prescriptions')
         .subscribe(response => {
           console.log('Full API response:', response); // Debugging step
          

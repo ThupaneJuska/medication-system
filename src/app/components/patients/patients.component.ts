@@ -22,7 +22,7 @@ export class PatientsComponent {
 
      // Fetch all patients
   getPatients() {
-    this.http.get<any[] >('http://localhost:3000/api/patients')
+    this.http.get<any[] >('https://237f-41-193-168-163.ngrok-free.app/api/patients')
       .subscribe(response => {
         this.patients = response;
         console.log('Fetched patients:', this.patients);
@@ -33,7 +33,7 @@ export class PatientsComponent {
 
       // Update Medication
   updatePatient(patient: any) {
-    this.http.put(`http://localhost:3000/api/patients/${patient.patient_id}`, patient)
+    this.http.put(`https://237f-41-193-168-163.ngrok-free.app/api/patients/${patient.patient_id}`, patient)
       .subscribe(response => {
         console.log('patient updated:', response);
         patient.isEditing = false; // Disable edit mode
