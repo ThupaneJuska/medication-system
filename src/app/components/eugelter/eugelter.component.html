@@ -62,7 +62,7 @@
           <ng-container matColumnDef="image">
             <th mat-header-cell *matHeaderCellDef>Image</th>
             <td mat-cell *matCellDef="let medication">
-              <img *ngIf="medication.image_url" [src]="'http://localhost:3000' + medication.image_url" alt="Med Image" width="50" (click)="viewImage(medication.image_url)" />
+              <img *ngIf="medication.image_url" [src]="'https://crud-api-wj2g.onrender.com' + medication.image_url" alt="Med Image" width="50" (click)="viewImage(medication.image_url)" />
             </td>
           </ng-container>
 
@@ -73,7 +73,7 @@
         <!-- Image View Modal -->
 <div *ngIf="selectedImageUrl" class="image-modal" (click)="closeModal()">
   <div class="image-modal-content">
-    <img [src]="'http://localhost:3000' + selectedImageUrl" alt="Med Image" />
+    <img [src]="'https://crud-api-wj2g.onrender.com' + selectedImageUrl" alt="Med Image" />
   </div>
 </div>
 
