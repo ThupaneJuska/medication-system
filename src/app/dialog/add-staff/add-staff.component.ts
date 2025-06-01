@@ -42,7 +42,7 @@ export class AddStaffComponent {
   addStaff() {
     if (this.staffForm.valid) {
       const newStaff = this.staffForm.value;
-      this.http.post('https://950d-41-122-208-13.ngrok-free.app/login/api/staff/add-staff', newStaff).subscribe((created: any) => {
+      this.http.post('https://950d-41-122-208-13.ngrok-free.app/api/staff/add-staff', newStaff).subscribe((created: any) => {
         this.staff.push(created);
         this.staffForm.reset();
         this.getStaff();
