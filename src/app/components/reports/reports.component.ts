@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ChartData, ChartType } from 'chart.js';
+import { ChartData, ChartType, ChartOptions } from 'chart.js';
 import { MatTableDataSource } from '@angular/material/table';
 import * as XLSX from 'xlsx';
 import * as FileSaver from 'file-saver';
@@ -36,7 +36,7 @@ export class ReportsComponent implements OnInit {
   lineChartData: ChartData<'line'> = {
     labels: ['Medications', 'Prescriptions', 'Staff'],
     datasets: [{
-      label: 'The Reports',
+      label: 'System Usage',
       data: [0, 0, 0],
       borderColor: '#62bce8',
       backgroundColor: 'rgba(98, 188, 232, 0.3)',
@@ -45,6 +45,45 @@ export class ReportsComponent implements OnInit {
     }]
   };
   lineChartType: ChartType = 'line';
+
+  chartOptions: ChartOptions = {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        position: 'top',
+        labels: {
+          font: {
+            size: 14
+          }
+        }
+      },
+      title: {
+        display: true,
+        text: 'System Usage Report',
+        font: {
+          size: 16
+        }
+      }
+    },
+    scales: {
+      x: {
+        ticks: {
+          font: {
+            size: 12
+          }
+        }
+      },
+      y: {
+        beginAtZero: true,
+        ticks: {
+          font: {
+            size: 12
+          }
+        }
+      }
+    }
+  };
 
   constructor(private http: HttpClient) {}
 
@@ -55,7 +94,7 @@ export class ReportsComponent implements OnInit {
   }
 
   getMedications() {
-    this.http.get<{ medications: any[] }>('https://237f-41-193-168-163.ngrok-free.app/api/medications/get-medications')
+    this.http.get<{ medications: any[] }>('https://crud-api-wj2g.onrender.com/api/medications/get-medications')
       .subscribe(response => {
         this.medications = response.medications;
         this.meds = response.medications.length;
@@ -64,7 +103,7 @@ export class ReportsComponent implements OnInit {
   }
 
   getPrescriptions() {
-    this.http.get<any[]>('https://237f-41-193-168-163.ngrok-free.app/api/prescriptions')
+    this.http.get<any[]>('https://crud-api-wj2g.onrender.com/api/prescriptions')
       .subscribe(response => {
         this.prescriptions.data = response;
         this.presc = response.length;
@@ -73,7 +112,7 @@ export class ReportsComponent implements OnInit {
   }
 
   getStaff() {
-    this.http.get<any[]>('https://237f-41-193-168-163.ngrok-free.app/api/staff/all-details')
+    this.http.get<any[]>('https://crud-api-wj2g.onrender.com/api/staff/all-details')
       .subscribe(response => {
         this.staff = response;
         this.staffCount = response.length;

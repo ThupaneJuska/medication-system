@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'https://237f-41-193-168-163.ngrok-free.app/api/staff/login';
+  private apiUrl = 'https://crud-api-wj2g.onrender.com/api/staff/login';
 
   constructor(private http: HttpClient) {}
 

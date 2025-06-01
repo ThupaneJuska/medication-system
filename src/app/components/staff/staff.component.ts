@@ -29,7 +29,7 @@ export class StaffComponent implements OnInit {
   }
 
   getStaff() {
-    this.http.get<any[]>('https://237f-41-193-168-163.ngrok-free.app/api/staff/all-details')
+    this.http.get<any[]>('https://crud-api-wj2g.onrender.com/api/staff/all-details')
       .subscribe(response => {
         this.staff = response;
       }, error => {

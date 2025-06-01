@@ -23,7 +23,7 @@ export class EugelterComponent implements OnInit {
   }
 
   getMedications() {
-    this.http.get<{ medications: any[] }>('https://237f-41-193-168-163.ngrok-free.app/api/medications/get-medications')
+    this.http.get<{ medications: any[] }>('https://crud-api-wj2g.onrender.com/api/medications/get-medications')
       .subscribe(response => {
         this.medications = response.medications;
         console.log('Fetched medications:', this.medications);
@@ -58,7 +58,7 @@ export class EugelterComponent implements OnInit {
       formData.append('image', this.selectedFile);
     }
 
-    this.http.post<{ message: string; medication: any }>('https://237f-41-193-168-163.ngrok-free.app/api/medications/add-medication', formData)
+    this.http.post<{ message: string; medication: any }>('https://crud-api-wj2g.onrender.com/api/medications/add-medication', formData)
       .subscribe(response => {
         console.log('Medication added:', response.medication);
         this.getMedications(); // Refresh list

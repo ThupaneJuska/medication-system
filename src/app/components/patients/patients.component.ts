@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
 
 @Component({
@@ -9,20 +9,21 @@ import { Component } from '@angular/core';
 export class PatientsComponent {
   patients: any[] = [];
 
-    constructor(private http: HttpClient) {}
   
-    ngOnInit() {
-      this.getPatients();  // Fetch patients when the component loads
-    }
+  constructor(private http: HttpClient) {}
 
-    // Edit Medication (Enable editing mode)
-  editPatient(patient: any) {
-    patient.isEditing = true; // Enable edit mode
+  ngOnInit() {
+    this.getPatients();  // Fetch patients when the component loads
   }
 
-     // Fetch all patients
+  // Enable edit mode
+  editPatient(patient: any) {
+    patient.isEditing = true;
+  }
+
+  // Fetch all patients
   getPatients() {
-    this.http.get<any[] >('https://237f-41-193-168-163.ngrok-free.app/api/patients')
+    this.http.get<any[]>('https://crud-api-wj2g.onrender.com/api/patients')
       .subscribe(response => {
         this.patients = response;
         console.log('Fetched patients:', this.patients);
@@ -31,15 +32,18 @@ export class PatientsComponent {
       });
   }
 
-      // Update Medication
+  // Update patient
   updatePatient(patient: any) {
-    this.http.put(`https://237f-41-193-168-163.ngrok-free.app/api/patients/${patient.patient_id}`, patient)
-      .subscribe(response => {
-        console.log('patient updated:', response);
-        patient.isEditing = false; // Disable edit mode
-        this.getPatients(); // Refresh table
-      }, error => {
-        console.error('Error updating patient:', error);
-      });
+    this.http.put(
+      `https://crud-api-wj2g.onrender.com/api/patients/${patient.patient_id}`,
+      patient
+    )
+    .subscribe(response => {
+      console.log('Patient updated:', response);
+      patient.isEditing = false;
+      this.getPatients(); // Refresh table
+    }, error => {
+      console.error('Error updating patient:', error);
+    });
   }
 }

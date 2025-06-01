@@ -31,7 +31,7 @@ export class AddStaffComponent {
 
 
   getStaff() {
-    this.http.get<any[]>('https://950d-41-122-208-13.ngrok-free.app/api/staff/all-details')
+    this.http.get<any[]>('https://crud-api-wj2g.onrender.com/api/staff/all-details')
       .subscribe(response => {
         this.staff = response;
       }, error => {
@@ -42,7 +42,7 @@ export class AddStaffComponent {
   addStaff() {
     if (this.staffForm.valid) {
       const newStaff = this.staffForm.value;
-      this.http.post('https://950d-41-122-208-13.ngrok-free.app/api/staff/add-staff', newStaff).subscribe((created: any) => {
+      this.http.post('https://crud-api-wj2g.onrender.com/api/staff/add-staff', newStaff).subscribe((created: any) => {
         this.staff.push(created);
         this.staffForm.reset();
         this.getStaff();
