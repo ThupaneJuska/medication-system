@@ -38,7 +38,7 @@ export class AddPrescriptionComponent implements OnInit {
   addPrescription() {
     if (this.prescriptionForm.invalid) return;
     console.log('Form submitted:', this.prescriptionForm.value);
-    this.http.post('http://localhost:3000/api/prescriptions', this.prescriptionForm.value)
+    this.http.post('https://950d-41-122-208-13.ngrok-free.app/api/prescriptions', this.prescriptionForm.value)
       .subscribe(response => {
         console.log('Prescription added:', response);
         this.dialogRef.close();
@@ -53,7 +53,7 @@ export class AddPrescriptionComponent implements OnInit {
   }
 
   fetchPatients() {
-    this.http.get<any[]>('http://localhost:3000/api/patients').subscribe(data => {
+    this.http.get<any[]>('https://950d-41-122-208-13.ngrok-free.app/api/patients').subscribe(data => {
       this.patients = data; // Assign the patients data directly
     }, error => {
       console.error('Error fetching patients:', error);
@@ -61,7 +61,7 @@ export class AddPrescriptionComponent implements OnInit {
   }
 
   fetchMedications() {
-    this.http.get<any>('http://localhost:3000/api/medications/get-medications').subscribe(response => {
+    this.http.get<any>('https://950d-41-122-208-13.ngrok-free.app/api/medications/get-medications').subscribe(response => {
       this.medications = response.medications; // Access the 'medications' array
     }, error => {
       console.error('Error fetching medications:', error);
@@ -69,7 +69,7 @@ export class AddPrescriptionComponent implements OnInit {
   }
 
   fetchStaff() {
-    this.http.get<any[]>('http://localhost:3000/api/staff').subscribe(data => {
+    this.http.get<any[]>('https://950d-41-122-208-13.ngrok-free.app/login/api/staff').subscribe(data => {
       this.staffList = data; // Assign the staff data directly
     }, error => {
       console.error('Error fetching staff:', error);
