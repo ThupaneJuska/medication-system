@@ -49,7 +49,7 @@ export class StaffComponent implements OnInit {
 
   deleteStaff(staffId: number) {
     if (confirm(`Are you sure you want to delete this staff member?`)) {
-      this.http.delete(`https://237f-41-193-168-163.ngrok-free.app/api/staff/${staffId}`).subscribe(() => {
+      this.http.delete(`https://crud-api-wj2g.onrender.com/api/staff/${staffId}`).subscribe(() => {
         this.staff = this.staff.filter(s => s.staff_id !== staffId);
         console.log('Staff member deleted');
       }, error => {
